@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twenzee | Premium Gen Z Men's Fashion</title>
+  <meta name="description" content="Twenzee - Elevate your street identity with premium Gen Z men's fashion. Shop hoodies, jackets, sneakers & more.">
+  <meta name="keywords" content="men's fashion, streetwear, Gen Z fashion, hoodies, jackets, sneakers">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Twenzee | Premium Gen Z Men's Fashion">
+  <meta property="og:description" content="Elevate your street identity with premium Gen Z men's fashion">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://twenzee.com">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+  <link rel="apple-touch-icon" href="assets/images/logo-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Instagram Hover Effect */
+    .insta-img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .insta-img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(229, 57, 53, 0.4);
+    }
+    
+    /* Footer Logo with 3D Effect */
+    .footer-logo-tilt {
+      perspective: 1000px;
+      cursor: pointer;
+      max-width: 180px;
+      margin: 0 auto 25px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+    .footer-logo-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+    
+    .footer-logo-tilt img {
+      width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Twenzee</a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-icon" title="Search">
+          <i class="fas fa-search"></i>
+        </a>
+        <a href="cart.html" class="nav-icon" title="Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">   
+    <div class="hero-slider">
+      <div class="hero-slide active">
+        <img src="assets/images/hero-1.jpg" alt="Street Hoodie Collection">
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/hero-2.jpg" alt="Premium Suit Collection">
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/hero-3.jpg" alt="Denim Jacket Collection">
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>Elevate Your <span>Street Identity</span></h1>
+            <p>Premium Gen Z Fashion. Crafted for the Bold. Discover the perfect blend of style, comfort, and attitude.</p>
+            <div class="hero-buttons">
+              <a href="shop.html" class="btn btn-primary">
+                <i class="fas fa-shopping-bag"></i>
+                Shop Now
+              </a>
+              <a href="shop.html" class="btn btn-secondary">
+                Explore Collection
+              </a>
+            </div>
+          </div>
+          
+          <div class="hero-visual">
+            <div class="hero-image-stack">
+              <div class="stack-image">
+                <img src="assets/images/product-1.jpg" alt="Featured Product">
+              </div>
+              <div class="stack-image">
+                <img src="assets/images/product-4.jpg" alt="Featured Product">
+              </div>
+              <div class="stack-image">
+                <img src="assets/images/product-7.jpg" alt="Featured Product">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-controls">
+      <button class="hero-arrow prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="hero-dots">
+        <span class="hero-dot active"></span>
+        <span class="hero-dot"></span>
+        <span class="hero-dot"></span>
+      </div>
+      <button class="hero-arrow next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Shop by Category</h2>
+        <p>Explore our curated collections designed for the modern Gen Z gentleman</p>
+      </div>
+      
+      <div class="categories-grid">
+        <a href="shop.html?category=hoodies" class="category-card">
+          <img src="assets/images/product-1.jpg" alt="Hoodies">
+          <div class="category-overlay">
+            <h3>Hoodies</h3>
+            <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+        
+        <a href="shop.html?category=jackets" class="category-card">
+          <img src="assets/images/product-4.jpg" alt="Jackets">
+          <div class="category-overlay">
+            <h3>Jackets</h3>
+            <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+        
+        <a href="shop.html?category=pants" class="category-card">
+          <img src="assets/images/product-3.jpg" alt="Pants">
+          <div class="category-overlay">
+            <h3>Pants</h3>
+            <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+        
+        <a href="shop.html?category=footwear" class="category-card">
+          <img src="assets/images/product-7.jpg" alt="Footwear">
+          <div class="category-overlay">
+            <h3>Footwear</h3>
+            <span>Shop Now <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Products Section -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Trending Now</h2>
+        <p>Discover what's hot in the streetwear scene right now</p>
+      </div>
+      
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=1'">
+          <img src="assets/images/product-1.jpg" alt="Zenith Oversized Hoodie">
+          <h4>Zenith Oversized Hoodie</h4>
+          <p>PKR 4,999</p>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=2'">
+          <img src="assets/images/product-2.jpg" alt="Urban Echoes Graphic Hoodie">
+          <h4>Urban Echoes Hoodie</h4>
+          <p>PKR 5,499</p>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=3'">
+          <img src="assets/images/product-3.jpg" alt="Midnight Runner Jacket">
+          <h4>Midnight Runner Jacket</h4>
+          <p>PKR 8,999</p>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=4'">
+          <img src="assets/images/product-4.jpg" alt="Urban Cargo Pants">
+          <h4>Urban Cargo Pants</h4>
+          <p>PKR 4,599</p>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=6'">
+          <img src="assets/images/product-6.jpg" alt="Premium Sneakers">
+          <h4>Premium Sneakers</h4>
+          <p>PKR 12,999</p>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=8'">
+          <img src="assets/images/product-8.jpg" alt="Denim Jacket">
+          <h4>Denim Jacket</h4>
+          <p>PKR 7,499</p>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=5'">
+          <img src="assets/images/product-5.jpg" alt="Cargo Pants">
+          <h4>Cargo Pants</h4>
+          <p>PKR 4,499</p>
+        </div>
+        <!-- Product 8 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=7'">
+          <img src="assets/images/product-7.jpg" alt="Casual Sneakers">
+          <h4>Casual Sneakers</h4>
+          <p>PKR 9,999</p>
+        </div>
+        <!-- Product 9 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=9'">
+          <img src="assets/images/product-9.jpg" alt="Graphic T-Shirt">
+          <h4>Graphic T-Shirt</h4>
+          <p>PKR 2,499</p>
+        </div>
+        <!-- Product 10 -->
+        <div class="product-card" onclick="window.location.href='product.html?id=10'">
+          <img src="assets/images/product-10.jpg" alt="Basic T-Shirt">
+          <h4>Basic T-Shirt</h4>
+          <p>PKR 1,999</p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="shop.html" class="btn btn-secondary">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Follow Us on Instagram Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Follow Us on Instagram</h2>
+        <p>@twenzee</p>
+      </div>
+      
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 50px;">
+        
+        <img src="assets/images/product-2.jpg" alt="Instagram" class="insta-img" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;">
+        <img src="assets/images/product-6.jpg" alt="Instagram" class="insta-img" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;">
+        <img src="assets/images/product-7.jpg" alt="Instagram" class="insta-img" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;">
+        <img src="assets/images/product-8.jpg" alt="Instagram" class="insta-img" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;">
+        <img src="assets/images/product-9.jpg" alt="Instagram" class="insta-img" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;">
+        <img src="assets/images/product-10.jpg" alt="Instagram" class="insta-img" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;">
+      </div>
+      
+      <!-- Join the Movement Section -->
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 15px;">Join the Movement</h2>
+        <p style="color: var(--text-muted); margin-bottom: 25px;">Subscribe to get exclusive offers, early access to drops, and style tips delivered to your inbox.</p>
+        <form style="max-width: 450px; margin: 0 auto; display: flex; gap: 10px;">
+          <input type="email" placeholder="Enter your email" required style="flex: 1; padding: 16px 20px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-primary); font-size: 1rem;">
+          <button type="submit" style="padding: 16px 30px; background: var(--accent); border: none; border-radius: var(--radius-md); color: white; font-weight: 600; cursor: pointer;">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Footer Logo with 3D Effect -->
+      <div class="footer-logo-tilt" id="footerLogoTilt">
+        <div class="footer-logo-inner" id="footerLogoInner">
+          <img src="assets/images/logo-full.png" alt="Twenzee">
+        </div>
+      </div>
+      <p class="tagline" style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">Dream Big. Wear Bigger.</p>
+      <div class="social-links" style="justify-content: center; margin-bottom: 35px;">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+      
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+            <li><a href="shop.html?category=jackets">Jackets</a></li>
+            <li><a href="shop.html?category=pants">Pants</a></li>
+            <li><a href="shop.html?category=footwear">Footwear</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@twenzee.com">support@twenzee.com</a></li>
+            <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+            <li><a href="contact.html">Send Message</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Twenzee. All rights reserved.</p>
+        <p>Developed by <a href="https://ghufran-shahid-tech.github.io/Personal-Portfolio-/" target="_blank">Ghufran Shahid</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  
+  <!-- Footer Logo 3D Effect -->
+  <script>
+    const footerLogoTilt = document.getElementById('footerLogoTilt');
+    const footerLogoInner = document.getElementById('footerLogoInner');
+    
+    if (footerLogoTilt && footerLogoInner) {
+      footerLogoTilt.addEventListener('mousemove', (e) => {
+        const rect = footerLogoTilt.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        footerLogoInner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      footerLogoTilt.addEventListener('mouseleave', () => {
+        footerLogoInner.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+  </script>
+</body>
+</html>

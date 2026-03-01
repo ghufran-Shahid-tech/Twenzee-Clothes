@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist | Twenzee - Premium Gen Z Men's Fashion</title>
+<meta name="description" content="Your saved items at Twenzee. Premium Gen Z men's fashion.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+<link rel="apple-touch-icon" href="assets/images/logo-icon.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+/* Wishlist Page Styles */
+.wishlist-page {
+  padding: 120px 0 60px;
+  min-height: 100vh;
+}
+
+.wishlist-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.wishlist-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-family: var(--font-display);
+}
+
+.wishlist-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.wishlist-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.wishlist-empty i {
+  font-size: 5rem;
+  color: var(--text-dark);
+  margin-bottom: 25px;
+  opacity: 0.3;
+}
+
+.wishlist-empty h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.wishlist-empty p {
+  color: var(--text-muted);
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.wishlist-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .wishlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .wishlist-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wishlist-page {
+    padding: 100px 0 50px;
+  }
+  
+  .wishlist-header h1 {
+    font-size: 1.8rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Twenzee</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="shop.html" class="nav-icon" title="Search"><i class="fas fa-search"></i></a>
+      <a href="cart.html" class="nav-icon" title="Cart"><i class="fas fa-shopping-bag"></i><span class="cart-count" style="display:none;">0</span></a>
+      <a href="wishlist.html" class="nav-icon active" title="Wishlist"><i class="fas fa-heart"></i></a>
+      <div class="menu-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Wishlist Page -->
+<section class="wishlist-page">
+  <div class="container">
+    <div class="wishlist-header">
+      <h1><i class="fas fa-heart" style="color: var(--accent); margin-right: 15px;"></i>Your Wishlist</h1>
+      <p>Save your favorite items for later</p>
+    </div>
+    
+    <div class="wishlist-grid" id="wishlist-grid">
+      <!-- Wishlist items loaded dynamically -->
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo-centered">
+      <img src="assets/images/logo-full.png" alt="Twenzee">
+      <p class="tagline">Dream Big. Wear Bigger.</p>
+      <div class="social-links" style="justify-content:center;margin-top:20px;">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+          <li><a href="shop.html?category=jackets">Jackets</a></li>
+          <li><a href="shop.html?category=pants">Pants</a></li>
+          <li><a href="shop.html?category=footwear">Footwear</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:support@twenzee.com">support@twenzee.com</a></li>
+          <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+          <li><a href="contact.html">Send Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Twenzee. All rights reserved.</p>
+      <p>Developed by <a href="https://ghufran-shahid-tech.github.io/Personal-Portfolio-/" target="_blank">Ghufran Shahid</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span id="toast-message">Item added to cart</span>
+</div>
+
+<!-- Scripts -->
+<script src="js/filters.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  // Wishlist functionality
+  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+  function renderWishlist() {
+    const container = document.getElementById('wishlist-grid');
+    if (!container) return;
+    
+    if (wishlist.length === 0) {
+      container.innerHTML = `
+        <div class="wishlist-empty">
+          <i class="fas fa-heart"></i>
+          <h2>Your Wishlist is Empty</h2>
+          <p>Save your favorite items by clicking the heart icon on any product</p>
+          <div class="wishlist-actions">
+            <a href="shop.html" class="btn btn-primary">Browse Products</a>
+            <a href="index.html" class="btn btn-secondary">Go to Home</a>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = wishlist.map(id => {
+      const product = products.find(p => p.id === id);
+      if (!product) return '';
+      return createWishlistCard(product);
+    }).join('');
+
+    // Add click handlers
+    container.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('.product-action-btn')) {
+          const id = card.dataset.id;
+          window.location.href = `product.html?id=${id}`;
+        }
+      });
+    });
+  }
+
+  function createWishlistCard(product) {
+    const formatPrice = (price) => {
+      return new Intl.NumberFormat('en-PK', {
+        style: 'currency',
+        currency: 'PKR',
+        minimumFractionDigits: 0
+      }).format(price);
+    };
+
+    const discount = product.originalPrice ? 
+      Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
+
+    return `
+      <div class="product-card" data-id="${product.id}">
+        <div class="product-image">
+          <img src="${product.images[0]}" alt="${product.name}" onerror="this.src='assets/images/logo-icon.png'">
+          ${product.isNew ? '<span class="product-badge new">NEW</span>' : ''}
+          ${discount > 0 ? `<span class="product-badge discount">-${discount}%</span>` : ''}
+          <div class="product-actions">
+            <button class="product-action-btn quick-view" data-id="${product.id}" title="Quick View">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="product-action-btn add-to-cart" data-id="${product.id}" title="Add to Cart">
+              <i class="fas fa-shopping-bag"></i>
+            </button>
+            <button class="product-action-btn remove-wishlist active" data-id="${product.id}" title="Remove from Wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <div class="product-price">
+            <span class="current-price">${formatPrice(product.price)}</span>
+            ${product.originalPrice ? `<span class="original-price">${formatPrice(product.originalPrice)}</span>` : ''}
+          </div>
+          <div class="product-rating">
+            ${getStarRating(product.rating)}
+            <span>(${product.reviewCount})</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function removeFromWishlist(productId) {
+    wishlist = wishlist.filter(id => id !== productId);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    renderWishlist();
+    showToast('Removed from wishlist');
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    renderWishlist();
+    
+    // Handle action button clicks
+    document.addEventListener('click', (e) => {
+      // Quick view
+      if (e.target.closest('.quick-view')) {
+        const id = e.target.closest('.quick-view').dataset.id;
+        window.location.href = `product.html?id=${id}`;
+      }
+      
+      // Add to cart
+      if (e.target.closest('.add-to-cart')) {
+        const id = parseInt(e.target.closest('.add-to-cart').dataset.id);
+        const product = products.find(p => p.id === id);
+        if (product && typeof cart !== 'undefined') {
+          cart.addItem(product, product.sizes[0], 1);
+          showToast('Added to cart!');
+        }
+      }
+      
+      // Remove from wishlist
+      if (e.target.closest('.remove-wishlist')) {
+        const id = parseInt(e.target.closest('.remove-wishlist').dataset.id);
+        removeFromWishlist(id);
+      }
+    });
+  });
+
+  // Export functions
+  window.removeFromWishlist = removeFromWishlist;
+  window.renderWishlist = renderWishlist;
+</script>
+
+</body>
+</html>

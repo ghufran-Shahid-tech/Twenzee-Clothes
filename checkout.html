@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Twenzee - Premium Gen Z Men's Fashion</title>
+  <meta name="description" content="Complete your purchase at Twenzee. Secure checkout for premium Gen Z men's fashion.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+  <link rel="apple-touch-icon" href="assets/images/logo-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Checkout Page Styles */
+    .checkout-page {
+      padding: 140px 0 80px;
+      min-height: 80vh;
+    }
+    
+    .checkout-header {
+      margin-bottom: 40px;
+    }
+    
+    .checkout-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .checkout-header p {
+      color: var(--text-muted);
+    }
+    
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
+      align-items: start;
+    }
+    
+    /* Form Styles */
+    .checkout-form {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 40px;
+    }
+    
+    .form-section {
+      margin-bottom: 40px;
+    }
+    
+    .form-section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .form-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .form-section h3 i {
+      color: var(--accent);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    
+    .form-group label .required {
+      color: var(--accent);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition-base);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+    
+    /* Radio Options */
+    .radio-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+    
+    .radio-option:hover {
+      border-color: var(--border-hover);
+    }
+    
+    .radio-option:has(input:checked) {
+      border-color: var(--accent);
+      background: rgba(255, 46, 46, 0.05);
+    }
+    
+    .radio-content {
+      flex: 1;
+    }
+    
+    .radio-content strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-primary);
+    }
+    
+    .radio-content span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    .radio-price {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    /* Payment Details */
+    .payment-details {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-md);
+    }
+    
+    .payment-details.active {
+      display: block;
+    }
+    
+    /* Order Summary */
+    .order-summary {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      position: sticky;
+      top: 120px;
+    }
+    
+    .order-summary h3 {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    /* Order Items */
+    .order-items {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 25px;
+      padding-right: 10px;
+    }
+    
+    .order-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    
+    .order-item-image {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--bg-tertiary);
+    }
+    
+    .order-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .item-qty {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .order-item-info {
+      flex: 1;
+    }
+    
+    .order-item-info h4 {
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+      font-family: var(--font-body);
+      font-weight: 600;
+    }
+    
+    .order-item-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    
+    .order-item-price {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    /* Place Order Button */
+    .place-order-btn {
+      width: 100%;
+      padding: 18px;
+      font-size: 1.1rem;
+    }
+    
+    /* Secure Note */
+    .secure-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    .secure-note i {
+      color: #28a745;
+    }
+    
+    /* Success Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.9);
+    }
+    
+    .modal-content {
+      position: relative;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+    
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+    
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      background: #28a745;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+    }
+    
+    .success-icon i {
+      font-size: 3rem;
+      color: white;
+    }
+    
+    .modal-content h2 {
+      margin-bottom: 15px;
+    }
+    
+    .modal-content p {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+    
+    /* Footer Logo 3D */
+    .footer-logo-tilt {
+      perspective: 1000px;
+      cursor: pointer;
+      max-width: 180px;
+      margin: 0 auto 25px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+    .footer-logo-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+    
+    .footer-logo-tilt img {
+      width: 100%;
+      display: block;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .checkout-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .order-summary {
+        position: relative;
+        top: 0;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .checkout-page {
+        padding: 120px 0 60px;
+      }
+      
+      .checkout-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .checkout-form {
+        padding: 25px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .modal-content {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo-compact.png" alt="Twenzee">
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-icon" title="Search">
+          <i class="fas fa-search"></i>
+        </a>
+        <a href="cart.html" class="nav-icon" title="Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Checkout Page -->
+  <section class="checkout-page">
+    <div class="container">
+      <div class="checkout-header">
+        <h1>Checkout</h1>
+        <p>Complete your order by providing your details</p>
+      </div>
+      
+      <div class="checkout-layout">
+        <!-- Checkout Form -->
+        <form class="checkout-form" id="checkout-form">
+          <!-- Contact Information -->
+          <div class="form-section">
+            <h3><i class="fas fa-user"></i> Contact Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input type="text" name="fullName" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label>Email <span class="required">*</span></label>
+                <input type="email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Phone Number <span class="required">*</span></label>
+              <input type="tel" name="phone" placeholder="+92 300 1234567" required>
+            </div>
+          </div>
+          
+          <!-- Shipping Address -->
+          <div class="form-section">
+            <h3><i class="fas fa-map-marker-alt"></i> Shipping Address</h3>
+            <div class="form-group full-width">
+              <label>Street Address <span class="required">*</span></label>
+              <input type="text" name="address" placeholder="123 Main Street, Apartment 4B" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>City <span class="required">*</span></label>
+                <input type="text" name="city" placeholder="Lahore" required>
+              </div>
+              <div class="form-group">
+                <label>Postal Code <span class="required">*</span></label>
+                <input type="text" name="postal" placeholder="54000" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Country <span class="required">*</span></label>
+              <select name="country" required>
+                <option value="">Select Country</option>
+                <option value="PK" selected>Pakistan</option>
+                <option value="IN">India</option>
+                <option value="BD">Bangladesh</option>
+                <option value="AE">UAE</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="UK">United Kingdom</option>
+                <option value="US">United States</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Shipping Method -->
+          <div class="form-section">
+            <h3><i class="fas fa-shipping-fast"></i> Shipping Method</h3>
+            <div class="radio-options">
+              <label class="radio-option">
+                <input type="radio" name="shipping" value="standard" checked>
+                <div class="radio-content">
+                  <strong>Standard Shipping</strong>
+                  <span>5-7 business days</span>
+                </div>
+                <span class="radio-price">PKR 299</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="shipping" value="express">
+                <div class="radio-content">
+                  <strong>Express Shipping</strong>
+                  <span>2-3 business days</span>
+                </div>
+                <span class="radio-price">PKR 599</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Payment Method -->
+          <div class="form-section">
+            <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+            <div class="radio-options">
+              <label class="radio-option">
+                <input type="radio" name="payment" value="cod" checked>
+                <div class="radio-content">
+                  <strong>Cash on Delivery</strong>
+                  <span>Pay when you receive</span>
+                </div>
+                <i class="fas fa-money-bill-wave" style="color: var(--accent);"></i>
+              </label>
+              
+              <label class="radio-option">
+                <input type="radio" name="payment" value="card">
+                <div class="radio-content">
+                  <strong>Credit/Debit Card</strong>
+                  <span>Visa, Mastercard, etc.</span>
+                </div>
+                <i class="fas fa-credit-card" style="color: var(--accent);"></i>
+              </label>
+              
+              <div class="payment-details" id="card-details">
+                <div class="form-row">
+                  <div class="form-group full-width">
+                    <label>Card Number</label>
+                    <input type="text" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Expiry Date</label>
+                    <input type="text" name="expiry" placeholder="MM/YY" maxlength="5">
+                  </div>
+                  <div class="form-group">
+                    <label>CVV</label>
+                    <input type="text" name="cvv" placeholder="123" maxlength="4">
+                  </div>
+                </div>
+                <div class="form-group full-width">
+                  <label>Cardholder Name</label>
+                  <input type="text" name="cardName" placeholder="John Doe">
+                </div>
+              </div>
+              
+              <label class="radio-option">
+                <input type="radio" name="payment" value="wallet">
+                <div class="radio-content">
+                  <strong>JazzCash / EasyPaisa</strong>
+                  <span>Mobile wallet payment</span>
+                </div>
+                <i class="fas fa-mobile-alt" style="color: var(--accent);"></i>
+              </label>
+              
+              <div class="payment-details" id="wallet-details">
+                <div class="form-group">
+                  <label>Mobile Account Number</label>
+                  <input type="text" name="walletNumber" placeholder="03XX XXXXXXX">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary place-order-btn">
+            <i class="fas fa-lock"></i>
+            Place Order
+          </button>
+        </form>
+        
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          
+          <!-- Order Items -->
+          <div class="order-items" id="order-items">
+            <!-- Items will be loaded dynamically -->
+          </div>
+          
+          <!-- Summary Totals -->
+          <div id="checkout-summary">
+            <!-- Summary will be loaded dynamically -->
+          </div>
+          
+          <div class="secure-note">
+            <i class="fas fa-lock"></i>
+            <span>Secure SSL Encrypted Checkout</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Success Modal -->
+  <div class="modal" id="order-success-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <h2>Order Placed Successfully!</h2>
+      <p>Thank you for your purchase. You will receive a confirmation email shortly with your order details.</p>
+      <button class="btn btn-primary" id="continue-shopping">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Footer Logo with 3D Effect -->
+      <div class="footer-logo-tilt" id="footerLogoTilt">
+        <div class="footer-logo-inner" id="footerLogoInner">
+          <img src="assets/images/logo-full.png" alt="Twenzee">
+        </div>
+      </div>
+      <p class="tagline" style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">Dream Big. Wear Bigger.</p>
+      <div class="social-links" style="justify-content: center; margin-bottom: 35px;">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+      
+      <!-- Instagram Feed Images -->
+      <div class="instagram-feed" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 35px; flex-wrap: wrap;">
+        <img src="assets/images/product-1.jpg" alt="Instagram" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+        <img src="assets/images/product-2.jpg" alt="Instagram" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+        <img src="assets/images/product-3.jpg" alt="Instagram" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+        <img src="assets/images/product-4.jpg" alt="Instagram" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+        <img src="assets/images/product-5.jpg" alt="Instagram" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+      </div>
+      
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+            <li><a href="shop.html?category=jackets">Jackets</a></li>
+            <li><a href="shop.html?category=pants">Pants</a></li>
+            <li><a href="shop.html?category=footwear">Footwear</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@twenzee.com">support@twenzee.com</a></li>
+            <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+            <li><a href="contact.html">Send Message</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Twenzee. All rights reserved.</p>
+        <p>Developed by <a href="https://ghufran-shahid-tech.github.io/Personal-Portfolio-/" target="_blank">Ghufran Shahid</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/app.js"></script>
+  
+  <!-- Footer Logo 3D Effect -->
+  <script>
+    const footerLogoTilt = document.getElementById('footerLogoTilt');
+    const footerLogoInner = document.getElementById('footerLogoInner');
+    
+    if (footerLogoTilt && footerLogoInner) {
+      footerLogoTilt.addEventListener('mousemove', (e) => {
+        const rect = footerLogoTilt.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        footerLogoInner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      footerLogoTilt.addEventListener('mouseleave', () => {
+        footerLogoInner.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+  </script>
+</body>
+</html>

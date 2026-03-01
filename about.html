@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Twenzee - Premium Gen Z Men's Fashion</title>
+  <meta name="description" content="Learn about Twenzee - the premium Gen Z men's fashion brand. Our story, vision, and mission.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+  <link rel="apple-touch-icon" href="assets/images/logo-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* About Page Styles */
+    .about-hero {
+      padding: 150px 0 80px;
+      background: var(--bg-secondary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0.3;
+    }
+    
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .about-hero h1 span {
+      color: var(--accent);
+    }
+    
+    .about-hero p {
+      max-width: 550px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Story Section with Logo Flip */
+    .story-section {
+      padding: 80px 0;
+    }
+    
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .story-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    
+    .story-content p {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    .story-content .btn {
+      margin-top: 15px;
+    }
+    
+    /* Logo Display - Same as footer */
+    .logo-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 20px;
+    }
+    
+    .logo-glow-bg {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .logo-card {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      z-index: 1;
+      cursor: pointer;
+      border-radius: var(--radius-lg);
+      overflow: visible;
+    }
+    
+    .logo-card::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: calc(var(--radius-lg) + 10px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.1);
+      animation: borderPulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes borderPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+    }
+    
+    .logo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Products Section */
+    .products-section {
+      padding: 80px 0;
+      background: var(--bg-secondary);
+    }
+    
+    .products-section h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .products-section .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 50px;
+      font-size: 1.1rem;
+    }
+    
+    .products-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .product-card-link {
+      display: block;
+      text-decoration: none;
+    }
+    
+    .product-card-simple {
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-lg);
+      padding: 15px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .product-card-simple img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    
+    .product-card-simple .card-overlay {
+      padding: 12px 0 0;
+    }
+    
+    .product-card-simple h3 {
+      font-size: 0.85rem;
+      margin: 0;
+      color: var(--text-primary);
+    }
+    
+    .product-card-simple .price {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: 3px;
+    }
+    
+    /* Team Section - No Mouse Effect */
+    .team-section {
+      padding: 80px 0;
+    }
+    
+    .team-section h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .team-section .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 50px;
+      font-size: 1.1rem;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .team-card-simple {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+    
+.team-avatar {
+      width: 170px;
+      height: 180px;
+      border-radius: 12px;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+    }
+    
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .team-card-simple h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+    
+    .team-role {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    
+    .team-card-simple p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .team-social a {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: var(--transition-base);
+      font-size: 0.85rem;
+    }
+    
+    .team-social a:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Reviews Section */
+    .reviews-section {
+      padding: 80px 0;
+      background: var(--bg-secondary);
+    }
+    
+    .reviews-section h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .reviews-section .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 50px;
+      font-size: 1.1rem;
+    }
+    
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+    
+    .review-card {
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-lg);
+      padding: 25px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+    }
+    
+    .review-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+    
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .reviewer-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .reviewer-info h4 {
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+    
+    .reviewer-info .review-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    .review-rating {
+      color: #ffc107;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+    
+    .review-text {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+    
+    /* Values Section */
+    .values-section {
+      padding: 80px 0;
+    }
+    
+    .values-section h2 {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+    
+    .value-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 30px 20px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-3d);
+    }
+    
+    .value-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+    }
+    
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+    
+    .value-icon i {
+      font-size: 1.4rem;
+      color: white;
+    }
+    
+    .value-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    
+    .value-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      padding: 60px 0;
+      background: var(--gradient-primary);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+    
+    .stat-item h3 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 8px;
+      font-family: var(--font-display);
+    }
+    
+    .stat-item p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+    
+    /* Mission Section */
+    .mission-section {
+      padding: 80px 0;
+      background: var(--bg-secondary);
+    }
+    
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .mission-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+    }
+    
+    .mission-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    
+    .mission-content p {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    /* Footer Logo 3D - Fixed Size */
+    .footer-logo-tilt {
+      perspective: 1000px;
+      cursor: pointer;
+      max-width: 180px;
+      margin: 0 auto 25px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+    .footer-logo-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+    
+    .footer-logo-tilt img {
+      width: 100%;
+      display: block;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .story-grid,
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .logo-display {
+        order: -1;
+      }
+      
+      .products-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 500px;
+      }
+      
+      .values-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .about-hero {
+        padding: 120px 0 60px;
+      }
+      
+      .about-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .products-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .mission-image img {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Twenzee</a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-icon" title="Search">
+          <i class="fas fa-search"></i>
+        </a>
+        <a href="cart.html" class="nav-icon" title="Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+        <a href="wishlist.html" class="nav-icon" title="Wishlist">
+          <i class="fas fa-heart"></i>
+        </a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>Our <span>Story</span></h1>
+      <p>We are Twenzee - a fashion revolution built for the bold, the creative, and the unapologetically authentic Gen Z generation.</p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content">
+          <h2>Crafted for the <span style="color: var(--accent);">Bold</span></h2>
+          <p>Twenzee was born in 2020 from a simple belief: Gen Z deserves fashion that speaks their language. We're not just selling clothes; we're curating an identity for the modern king who refuses to compromise on style or substance.</p>
+          <p>Every piece in our collection is thoughtfully designed to blend premium quality with street-ready aesthetics. From oversized hoodies to tailored suits, we craft garments that empower you to express your unique style.</p>
+          <p>Our journey began in Lahore, Pakistan, with a vision to create a global fashion brand that understands the pulse of Gen Z. Today, we're proud to serve customers across 15+ countries.</p>
+          <a href="shop.html" class="btn btn-primary">Explore Collection</a>
+        </div>
+        
+        <div class="logo-display">
+          <div class="logo-glow-bg"></div>
+          <div class="logo-card" id="logoCard">
+            <img src="assets/images/logo-full.png" alt="Twenzee Logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="container">
+      <h2>Our <span style="color: var(--accent);">Collection</span></h2>
+      <p class="section-subtitle">Click image to open product</p>
+      
+      <div class="products-cards-grid">
+        <!-- Product 1 -->
+        <a href="product.html?id=1" class="product-card-link">
+          <div class="product-card-simple">
+            <img src="assets/images/product-1.jpg" alt="Zenith Oversized Hoodie">
+            <div class="card-overlay">
+              <h3>Zenith Hoodie</h3>
+              <div class="price">PKR 4,999</div>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Product 2 -->
+        <a href="product.html?id=3" class="product-card-link">
+          <div class="product-card-simple">
+            <img src="assets/images/product-3.jpg" alt="Midnight Runner Jacket">
+            <div class="card-overlay">
+              <h3>Midnight Jacket</h3>
+              <div class="price">PKR 8,999</div>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Product 3 -->
+        <a href="product.html?id=5" class="product-card-link">
+          <div class="product-card-simple">
+            <img src="assets/images/product-5.jpg" alt="Urban Cargo Pants">
+            <div class="card-overlay">
+              <h3>Cargo Pants</h3>
+              <div class="price">PKR 4,599</div>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Product 4 -->
+        <a href="product.html?id=7" class="product-card-link">
+          <div class="product-card-simple">
+            <img src="assets/images/product-7.jpg" alt="Casual Sneakers">
+            <div class="card-overlay">
+              <h3>Casual Sneakers</h3>
+              <div class="price">PKR 9,999</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section - No Mouse Effect -->
+  <section class="team-section">
+    <div class="container">
+      <h2>The <span style="color: var(--accent);">Creative Minds</span></h2>
+      <p class="section-subtitle">Meet the visionaries behind Twenzee</p>
+      
+      <div class="team-grid">
+<div class="team-card-simple">
+          <div class="team-avatar">
+            <img src="assets/images/ghufi.png" alt="Ghufran Shahid">
+          </div>
+          <h3>Mr. Ghufran Shahid</h3>
+          <p class="team-role">Founder & CEO</p>
+          <p>A visionary leader with a passion for fashion and technology. Ghufran founded Twenzee with a mission to revolutionize Gen Z fashion in Pakistan and beyond.</p>
+          <div class="team-social">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-card-simple">
+          <div class="team-avatar">
+            <img src="assets/images/asad.png" alt="Mr. Asad">
+          </div>
+          <h3>Mr. Asad</h3>
+          <p class="team-role">Co-Founder & Creative Director</p>
+          <p>The creative force behind Twenzee's distinctive designs. Asad brings his artistic vision and fashion expertise to create collections that resonate with the Gen Z audience.</p>
+          <div class="team-social">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2>What Our <span style="color: var(--accent);">Customers Say</span></h2>
+      <p class="section-subtitle">Real reviews from real customers</p>
+      
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">AK</div>
+            <div class="reviewer-info">
+              <h4>Ahmed Khan</h4>
+              <span class="review-date">January 15, 2024</span>
+            </div>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">Amazing quality! The fabric is super comfortable and the fit is perfect.</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">SR</div>
+            <div class="reviewer-info">
+              <h4>Saad Rahman</h4>
+              <span class="review-date">January 10, 2024</span>
+            </div>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="review-text">Great product! The design is exactly as shown. Good value for money.</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">MH</div>
+            <div class="reviewer-info">
+              <h4>Mohammad Hasan</h4>
+              <span class="review-date">January 8, 2024</span>
+            </div>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">Best online shopping experience! Customer service was excellent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <h2>Our <span style="color: var(--accent);">Values</span></h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h3>Quality First</h3>
+          <p>We never compromise on quality. Every garment is crafted from premium materials.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Sustainability</h3>
+          <p>We're committed to sustainable fashion practices and ethical manufacturing.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Community</h3>
+          <p>We believe in building a community of like-minded individuals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3><span class="counter" data-target="50000">0</span>+</h3>
+          <p>Happy Customers</p>
+        </div>
+        <div class="stat-item">
+          <h3><span class="counter" data-target="200">0</span>+</h3>
+          <p>Products</p>
+        </div>
+        <div class="stat-item">
+          <h3><span class="counter" data-target="15">0</span>+</h3>
+          <p>Countries</p>
+        </div>
+        <div class="stat-item">
+          <h3><span class="counter" data-target="99">0</span>%</h3>
+          <p>Satisfaction Rate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-image">
+          <img src="assets/images/hero-3.jpg" alt="Our Mission">
+        </div>
+        <div class="mission-content">
+          <h2>Our <span style="color: var(--accent);">Mission</span></h2>
+          <p>At Twenzee, our mission is to democratize premium fashion for Gen Z. We believe that everyone deserves access to high-quality, stylish clothing.</p>
+          <p>We're on a journey to redefine what streetwear means for the modern generation.</p>
+          <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Footer Logo with 3D Effect - Same size as other pages -->
+      <div class="footer-logo-tilt" id="footerLogoTilt">
+        <div class="footer-logo-inner" id="footerLogoInner">
+          <img src="assets/images/logo-full.png" alt="Twenzee">
+        </div>
+      </div>
+      <p class="tagline" style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">Dream Big. Wear Bigger.</p>
+      <div class="social-links" style="justify-content: center; margin-bottom: 35px;">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+      
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+            <li><a href="shop.html?category=jackets">Jackets</a></li>
+            <li><a href="shop.html?category=pants">Pants</a></li>
+            <li><a href="shop.html?category=footwear">Footwear</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@twenzee.com">support@twenzee.com</a></li>
+            <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+            <li><a href="contact.html">Send Message</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Twenzee. All rights reserved.</p>
+        <p>Developed by <a href="https://ghufran-shahid-tech.github.io/Personal-Portfolio-/" target="_blank">Ghufran Shahid</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/filters.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  
+  <!-- Footer Logo 3D Effect & Counter Animation -->
+  <script>
+    // Footer Logo 3D Effect
+    const footerLogoTilt = document.getElementById('footerLogoTilt');
+    const footerLogoInner = document.getElementById('footerLogoInner');
+    
+    if (footerLogoTilt && footerLogoInner) {
+      footerLogoTilt.addEventListener('mousemove', (e) => {
+        const rect = footerLogoTilt.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        footerLogoInner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      footerLogoTilt.addEventListener('mouseleave', () => {
+        footerLogoInner.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+    
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    let started = false;
+    
+    function startCounting() {
+      if (started) return;
+      started = true;
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            if (target >= 1000) {
+              counter.textContent = Math.floor(current / 1000) + 'K';
+            } else if (target >= 100) {
+              counter.textContent = Math.floor(current);
+            } else {
+              counter.textContent = Math.floor(current);
+            }
+            requestAnimationFrame(updateCounter);
+          } else {
+            if (target >= 1000) {
+              counter.textContent = Math.floor(target / 1000) + 'K';
+            } else {
+              counter.textContent = target;
+            }
+          }
+        };
+        
+        updateCounter();
+      });
+    }
+    
+    // Start counting when stats section is visible
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startCounting();
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(statsSection);
+    }
+  </script>
+</body>
+</html>

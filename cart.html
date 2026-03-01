@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Twenzee - Premium Gen Z Men's Fashion</title>
+  <meta name="description" content="View your shopping cart at Twenzee. Premium Gen Z men's fashion.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+  <link rel="apple-touch-icon" href="assets/images/logo-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Cart Page Styles */
+    .cart-page {
+      padding: 140px 0 80px;
+      min-height: 80vh;
+    }
+    
+    .cart-header {
+      margin-bottom: 40px;
+    }
+    
+    .cart-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .cart-header p {
+      color: var(--text-muted);
+    }
+    
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: start;
+    }
+    
+    /* Cart Items */
+    .cart-items {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+    
+    .cart-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto auto auto;
+      gap: 20px;
+      align-items: center;
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    
+    .cart-item-image {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-tertiary);
+    }
+    
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .cart-item-details h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      font-family: var(--font-body);
+      font-weight: 600;
+    }
+    
+    .cart-item-size {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    
+    .cart-item-price {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .cart-item-quantity {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    
+    .qty-btn {
+      width: 36px;
+      height: 36px;
+      background: var(--bg-tertiary);
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: var(--transition-base);
+    }
+    
+    .qty-btn:hover {
+      background: var(--accent);
+    }
+    
+    .qty-value {
+      width: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .cart-item-total {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      min-width: 100px;
+      text-align: right;
+    }
+    
+    .cart-item-remove {
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+    
+    .cart-item-remove:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    
+    /* Empty Cart */
+    .empty-cart {
+      text-align: center;
+      padding: 80px 40px;
+    }
+    
+    .empty-cart i {
+      font-size: 5rem;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+    }
+    
+    .empty-cart h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    .empty-cart p {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+    
+    /* Cart Summary */
+    .cart-summary-wrapper {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      position: sticky;
+      top: 120px;
+    }
+    
+    .cart-summary-wrapper h3 {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    
+    .summary-row.total {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .summary-row.total span:last-child {
+      color: var(--accent);
+      font-family: var(--font-display);
+    }
+    
+    .free-shipping-note {
+      background: rgba(40, 167, 69, 0.1);
+      color: #28a745;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cart-actions {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .cart-actions .btn {
+      width: 100%;
+    }
+    
+    .clear-cart-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-family: var(--font-accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition-base);
+    }
+    
+    .clear-cart-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    /* Continue Shopping */
+    .continue-shopping {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    .continue-shopping a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    .continue-shopping a i {
+      margin-right: 8px;
+    }
+    
+    /* Footer Logo 3D */
+    .footer-logo-tilt {
+      perspective: 1000px;
+      cursor: pointer;
+      max-width: 180px;
+      margin: 0 auto 25px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+    .footer-logo-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+    
+    .footer-logo-tilt img {
+      width: 100%;
+      display: block;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .cart-summary-wrapper {
+        position: relative;
+        top: 0;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .cart-page {
+        padding: 120px 0 60px;
+      }
+      
+      .cart-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .cart-item {
+        grid-template-columns: 80px 1fr auto;
+        gap: 15px;
+      }
+      
+      .cart-item-image {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .cart-item-total {
+        display: none;
+      }
+      
+      .cart-item-remove {
+        grid-column: 3;
+        grid-row: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Twenzee</a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-icon" title="Search">
+          <i class="fas fa-search"></i>
+        </a>
+        <a href="cart.html" class="nav-icon" title="Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Page -->
+  <section class="cart-page">
+    <div class="container">
+      <div class="cart-header">
+        <h1>Shopping Cart</h1>
+        <p>Review your items and proceed to checkout</p>
+      </div>
+      
+      <div class="cart-layout">
+        <!-- Cart Items -->
+        <div class="cart-items" id="cart-items">
+          <!-- Cart items will be loaded dynamically -->
+        </div>
+        
+        <!-- Cart Summary -->
+        <div class="cart-summary-wrapper">
+          <h3>Order Summary</h3>
+          <div id="cart-summary">
+            <!-- Summary will be loaded dynamically -->
+          </div>
+          <div class="cart-actions">
+            <button class="btn btn-primary" id="checkout-btn">
+              <i class="fas fa-lock"></i>
+              Proceed to Checkout
+            </button>
+            <button class="clear-cart-btn" id="clear-cart">
+              <i class="fas fa-trash"></i>
+              Clear Cart
+            </button>
+          </div>
+          <div class="continue-shopping">
+            <a href="shop.html">
+              <i class="fas fa-arrow-left"></i>
+              Continue Shopping
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Footer Logo with 3D Effect -->
+      <div class="footer-logo-tilt" id="footerLogoTilt">
+        <div class="footer-logo-inner" id="footerLogoInner">
+          <img src="assets/images/logo-full.png" alt="Twenzee">
+        </div>
+      </div>
+      <p class="tagline" style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">Dream Big. Wear Bigger.</p>
+      <div class="social-links" style="justify-content: center; margin-bottom: 35px;">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+      
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+            <li><a href="shop.html?category=jackets">Jackets</a></li>
+            <li><a href="shop.html?category=pants">Pants</a></li>
+            <li><a href="shop.html?category=footwear">Footwear</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@twenzee.com">support@twenzee.com</a></li>
+            <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+            <li><a href="contact.html">Send Message</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Twenzee. All rights reserved.</p>
+        <p>Developed by <a href="https://ghufran-shahid-tech.github.io/Personal-Portfolio-/" target="_blank">Ghufran Shahid</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  
+  <!-- Footer Logo 3D Effect -->
+  <script>
+    const footerLogoTilt = document.getElementById('footerLogoTilt');
+    const footerLogoInner = document.getElementById('footerLogoInner');
+    
+    if (footerLogoTilt && footerLogoInner) {
+      footerLogoTilt.addEventListener('mousemove', (e) => {
+        const rect = footerLogoTilt.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        footerLogoInner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      footerLogoTilt.addEventListener('mouseleave', () => {
+        footerLogoInner.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+  </script>
+</body>
+</html>
