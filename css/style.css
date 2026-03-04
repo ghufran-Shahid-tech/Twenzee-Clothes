@@ -1740,3 +1740,9 @@ img {
   color: var(--accent);
 }
 
+.footer-logo {
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+}
+
